@@ -1,0 +1,42 @@
+.parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 35px;
+  padding: 36px;
+}
+.bg {
+  background-image: url(../../assets/wave.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.grid {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+}
+.item {
+  margin: 20px;
+  padding: 20px;
+}
+
+@media (max-width: 767px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 575px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .row {
+    flex-direction: column;
+  }
+}

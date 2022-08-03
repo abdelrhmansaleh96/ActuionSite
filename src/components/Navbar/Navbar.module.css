@@ -84,3 +84,8 @@
   cursor: pointer;
   color: green;
 }
+@media (min-width: 992px) {
+  .menu {
+    display: none;
+  }
+}

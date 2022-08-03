@@ -7,6 +7,7 @@ import React from "react";
 // import SignUp from "./pages/SignUp";
 // import SingleAuction from "./pages/SingleAuction";
 import Navbar from "./components/Navbar/Navbar";
+// import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/forgetpassword" element={<ForgetPassword />} />
       </Routes> */}
       <Navbar />
+      {/* <Footer /> */}
     </>
   );
 }
