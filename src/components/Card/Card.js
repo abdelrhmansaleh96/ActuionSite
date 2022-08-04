@@ -30,7 +30,12 @@ export default function MultiActionAreaCard() {
             <LocationOnIcon />
           </div>
         </div>
-        <Card sx={{ maxWidth: 400, borderRadius: "22px" }}>
+        <Card
+          sx={{ maxWidth: 400, borderRadius: "22px" }}
+          style={{
+            padding: 0,
+          }}
+        >
           <CardActionArea>
             <CardMedia
               component="img"
