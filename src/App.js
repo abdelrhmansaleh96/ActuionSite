@@ -1,4 +1,7 @@
 import React from "react";
+import { ThemeProvider } from "@mui/material/styles";
+import { useMainContext } from "./context/main_context";
+
 // import { Routes, Route } from "react-router-dom";
 // import ContactUs from "./pages/ContactUs";
 // import ForgetPassword from "./pages/ForgetPassword";
@@ -7,13 +10,17 @@ import React from "react";
 // import SignUp from "./pages/SignUp";
 // import SingleAuction from "./pages/SingleAuction";
 import Navbar from "./components/Navbar/Navbar";
-import LogIn from "./components/LogIn/LogIn";
-// import Footer from "./components/Footer/Footer";
+// import LogIn from "./components/LogIn/LogIn";
+import Footer from "./components/Footer/Footer";
+import Card from "./components/Card/Card";
 
 function App() {
+  const { theme } = useMainContext();
+
   return (
     <>
-      {/* <Routes>
+      <ThemeProvider theme={theme}>
+        {/* <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/singleauction" element={<SingleAuction />} />
         <Route path="/login" element={<Login />} />
@@ -21,9 +28,10 @@ function App() {
         <Route path="/contactus" element={<ContactUs />} />
         <Route path="/forgetpassword" element={<ForgetPassword />} />
       </Routes> */}
-      <Navbar />
-      <LogIn />
-      {/* <Footer /> */}
+        <Navbar />
+        <Card />
+        <Footer />
+      </ThemeProvider>
     </>
   );
 }

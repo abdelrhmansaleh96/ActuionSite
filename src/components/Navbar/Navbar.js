@@ -1,16 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import classes from "./Navbar.module.css";
 import logo from "../../assets/logo.png";
 import { CgProfile } from "react-icons/cg";
-import { FaBars } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import Sidebar from "../Sidebar/Sidebar";
 
 const Navbar = () => {
-  const [toggleDropMenu, setToggleDropMenu] = useState(false);
-
-  const handleDropMenu = () => {
-    setToggleDropMenu(!toggleDropMenu);
-  };
   return (
     <>
       <div className={classes.container}>
@@ -18,7 +12,7 @@ const Navbar = () => {
           <img src={logo} alt="logo" />
         </div>
         <div className={classes["toggle-btn"]}>
-          <FaBars className={classes.icon} onClick={handleDropMenu} />
+          <Sidebar />
         </div>
         <div className={classes["nav-container"]}>
           <div className={`${classes.main} ${classes.one}`}>
@@ -30,7 +24,7 @@ const Navbar = () => {
           <div className={classes.main}>Contact US</div>
         </div>
       </div>
-      {toggleDropMenu ? (
+      {/* {toggleDropMenu ? (
         <div className={classes.menu}>
           <div className={classes.item}>LogIn</div>
 
@@ -38,7 +32,7 @@ const Navbar = () => {
           <div className={classes.item}>Auctions</div>
           <div className={classes.item}>Contact us</div>
         </div>
-      ) : null}
+      ) : null} */}
     </>
   );
 };
