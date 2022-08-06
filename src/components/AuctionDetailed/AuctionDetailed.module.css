@@ -87,5 +87,13 @@
 .small-acc {
   display: flex;
 
-  justify-content: space-around;
+  justify-content: space-between;
+  margin: 0 20px 0 20px;
+}
+
+.address {
+  color: #686f7a;
+}
+.detail {
+  font-size: 14px;
 }

@@ -11,6 +11,7 @@ function AuctionDetailed() {
   return (
     <div className={classes.wrapper}>
       <Accordion
+        expanded={expanded === "panel1"}
         sx={{
           ".css-o4b71y-MuiAccordionSummary-content": {
             margin: 0,
@@ -21,7 +22,7 @@ function AuctionDetailed() {
         }}
       >
         <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
+          expandIcon={expanded === "panel1" ? <ExpandMoreIcon /> : null}
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
@@ -83,6 +84,7 @@ function AuctionDetailed() {
                   <p>New Cairo</p>
                 </div>
               </div>
+              <Divider />
             </AccordionDetails>
           </Accordion>
         </div>
