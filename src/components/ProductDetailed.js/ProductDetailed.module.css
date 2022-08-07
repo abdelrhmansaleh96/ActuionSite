@@ -122,6 +122,15 @@
   border-radius: 10px;
   padding-bottom: 28px;
 }
+.auction-detailed-container {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 35px;
+  box-shadow: 0 0 4px 0 #e0e0e0;
+}
 .details-title {
   display: flex;
   align-items: center;

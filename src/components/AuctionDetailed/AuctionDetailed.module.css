@@ -1,6 +1,6 @@
 .wrapper {
-  margin-top: 35px;
-  /* margin: auto; */
+  /* margin-top: 35px; */
+  margin: auto;
 }
 .acc-header {
   width: 70%;
@@ -21,7 +21,7 @@
   background-color: #d0eade !important;
   border-radius: 19px 0 0 18px !important;
   height: 100%;
-  width: 75px;
+  width: 125px;
 }
 .acc-header h5 {
   font-size: 15px;

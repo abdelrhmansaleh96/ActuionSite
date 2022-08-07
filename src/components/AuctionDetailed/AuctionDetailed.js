@@ -19,7 +19,6 @@ function AuctionDetailed() {
     <div className={classes.wrapper}>
       <Accordion
         sx={{
-          pointerEvents: "none",
           ".css-o4b71y-MuiAccordionSummary-content": {
             margin: 0,
           },
@@ -29,9 +28,13 @@ function AuctionDetailed() {
           ".css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root": {
             marginLeft: "17px",
           },
+          marginBottom: "5px",
         }}
       >
         <AccordionSummary
+          sx={{
+            pointerEvents: "none",
+          }}
           onClick={() => {
             setExpandedIcon(!expandedIcon);
           }}

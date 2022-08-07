@@ -14,6 +14,7 @@ import Footer from "./components/Footer/Footer";
 import ProductDetailed from "./components/ProductDetailed.js/ProductDetailed";
 import AuctionDetailed from "./components/AuctionDetailed/AuctionDetailed";
 import AuctionDialog from "./components/AuctionDialog/AuctionDialog";
+import Dashboard from "./components/Dashboard/Dashboard";
 
 function App() {
   const { theme } = useMainContext();
@@ -30,8 +31,7 @@ function App() {
         <Route path="/contactus" element={<ContactUs />} />
         <Route path="/forgetpassword" element={<ForgetPassword />} />
       </Routes> */}
-        <AuctionDetailed />
-
+        <Dashboard />
         {/* <Footer /> */}
       </ThemeProvider>
     </>
