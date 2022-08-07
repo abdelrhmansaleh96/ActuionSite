@@ -86,8 +86,6 @@ const CardDetailed = () => {
             >
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia
               alias magnam dolore provident fugit aut porro reprehenderit amet
-              atque accusamus temporibus ex ab possimus, aliquam sint eius
-              maiores! Ad, veritatis.
             </Typography>
           </CardContent>
         </Card>

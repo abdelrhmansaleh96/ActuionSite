@@ -1,5 +1,5 @@
 .wrapper {
-  margin: 50px;
+  margin: auto;
 }
 .acc-header {
   width: 70%;
@@ -96,4 +96,15 @@
 }
 .detail {
   font-size: 14px;
+}
+
+.icon-wrapper {
+  border-radius: 20px;
+  background-color: rgb(242, 172, 87);
+  color: rgb(255, 255, 255);
+  font-size: 10px;
+  height: 23px;
+  width: 23px;
+  padding: 5px;
+  text-align: center;
 }

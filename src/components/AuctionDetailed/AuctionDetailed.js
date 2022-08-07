@@ -1,17 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./AuctionDetailed.module.css";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import AddIcon from "@mui/icons-material/Add";
 import { Divider } from "@mui/material";
 import ImageSlider from "../ImageSlider/ImageSlider";
 
 function AuctionDetailed() {
+  const [expandedIcon, setExpandedIcon] = useState(false);
   return (
     <div className={classes.wrapper}>
       <Accordion
-        expanded={expanded === "panel1"}
         sx={{
           ".css-o4b71y-MuiAccordionSummary-content": {
             margin: 0,
@@ -19,10 +20,26 @@ function AuctionDetailed() {
           ".css-o4b71y-MuiAccordionSummary-content.Mui-expanded": {
             margin: 0,
           },
+          ".css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root": {
+            marginLeft: "17px",
+          },
         }}
       >
         <AccordionSummary
-          expandIcon={expanded === "panel1" ? <ExpandMoreIcon /> : null}
+          onClick={() => {
+            setExpandedIcon(!expandedIcon);
+          }}
+          expandIcon={
+            expandedIcon ? (
+              <div className={classes["icon-wrapper"]}>
+                <ExpandMoreIcon />
+              </div>
+            ) : (
+              <div>
+                <AddIcon className={classes["icon-wrapper"]} />
+              </div>
+            )
+          }
           aria-controls="panel1a-content"
           id="panel1a-header"
         >

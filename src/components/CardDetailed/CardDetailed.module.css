@@ -13,7 +13,7 @@
 .img-actions {
   display: flex;
   position: absolute;
-  bottom: 115px;
+  top: 283px;
   width: 100%;
   align-items: center;
   justify-content: center;

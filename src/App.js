@@ -10,11 +10,8 @@ import { useMainContext } from "./context/main_context";
 // import SignUp from "./pages/SignUp";
 // import SingleAuction from "./pages/SingleAuction";
 import Navbar from "./components/Navbar/Navbar";
-import ImageSlider from "./components/ImageSlider/ImageSlider";
 // import LogIn from "./components/LogIn/LogIn";
-import Footer from "./components/Footer/Footer";
-import CardDetailed from "./components/CardDetailed/CardDetailed";
-import AuctionDetailed from "./components/AuctionDetailed/AuctionDetailed";
+import ProductDetailed from "./components/ProductDetailed.js/ProductDetailed";
 
 function App() {
   const { theme } = useMainContext();
@@ -31,8 +28,7 @@ function App() {
         <Route path="/forgetpassword" element={<ForgetPassword />} />
       </Routes> */}
         <Navbar />
-        <AuctionDetailed />
-        {/* <Footer /> */}
+        <ProductDetailed />
       </ThemeProvider>
     </>
   );

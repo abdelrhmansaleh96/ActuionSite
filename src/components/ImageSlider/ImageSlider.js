@@ -37,7 +37,7 @@ export default function ImageSlider(props) {
         sx={{
           maxWidth: "750px",
           width: "100%",
-          height: "300px",
+          height: "max-content",
         }}
         indicators={false}
         navButtonsAlwaysVisible={true}
@@ -47,6 +47,14 @@ export default function ImageSlider(props) {
           style: {
             backgroundColor: "rgb(255,255,255,.5)",
             color: "black",
+            padding: "0",
+          },
+        }}
+        navButtonsWrapperProps={{
+          // Move the buttons to the bottom. Unsetting top here to override default style.
+          style: {
+            bottom: "0",
+            top: "unset",
           },
         }}
       >
