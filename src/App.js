@@ -10,8 +10,10 @@ import { useMainContext } from "./context/main_context";
 // import SignUp from "./pages/SignUp";
 // import SingleAuction from "./pages/SingleAuction";
 import Navbar from "./components/Navbar/Navbar";
-// import LogIn from "./components/LogIn/LogIn";
+import Footer from "./components/Footer/Footer";
 import ProductDetailed from "./components/ProductDetailed.js/ProductDetailed";
+import AuctionDetailed from "./components/AuctionDetailed/AuctionDetailed";
+import AuctionDialog from "./components/AuctionDialog/AuctionDialog";
 
 function App() {
   const { theme } = useMainContext();
@@ -19,6 +21,7 @@ function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
+        <Navbar />
         {/* <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/singleauction" element={<SingleAuction />} />
@@ -27,8 +30,9 @@ function App() {
         <Route path="/contactus" element={<ContactUs />} />
         <Route path="/forgetpassword" element={<ForgetPassword />} />
       </Routes> */}
-        <Navbar />
-        <ProductDetailed />
+        <AuctionDetailed />
+
+        {/* <Footer /> */}
       </ThemeProvider>
     </>
   );

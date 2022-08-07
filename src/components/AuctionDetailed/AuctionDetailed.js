@@ -7,13 +7,19 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AddIcon from "@mui/icons-material/Add";
 import { Divider } from "@mui/material";
 import ImageSlider from "../ImageSlider/ImageSlider";
+import Countdown from "react-countdown";
+import { TbHeartRateMonitor } from "react-icons/tb";
+import AuctionDialog from "../AuctionDialog/AuctionDialog";
+import Button from "@mui/material/Button";
 
 function AuctionDetailed() {
   const [expandedIcon, setExpandedIcon] = useState(false);
+
   return (
     <div className={classes.wrapper}>
       <Accordion
         sx={{
+          pointerEvents: "none",
           ".css-o4b71y-MuiAccordionSummary-content": {
             margin: 0,
           },
@@ -32,11 +38,20 @@ function AuctionDetailed() {
           expandIcon={
             expandedIcon ? (
               <div className={classes["icon-wrapper"]}>
-                <ExpandMoreIcon />
+                <ExpandMoreIcon
+                  sx={{
+                    pointerEvents: "auto",
+                  }}
+                />
               </div>
             ) : (
               <div>
-                <AddIcon className={classes["icon-wrapper"]} />
+                <AddIcon
+                  sx={{
+                    pointerEvents: "auto",
+                  }}
+                  className={classes["icon-wrapper"]}
+                />
               </div>
             )
           }
@@ -46,6 +61,31 @@ function AuctionDetailed() {
           <div className={classes["acc-header"]}>
             <span>1</span>
             <h5>First Land with 500km square</h5>
+          </div>
+          <div className={classes.ongoing}>
+            <div className={classes.countdown}>
+              <div className={classes["countdown-title"]}>
+                <div className={classes.item}>Seconds</div>
+                <div className={classes.item}>Minutes</div>
+                <div className={classes.item}>Hour</div>
+                <div className={classes.item}>Day</div>
+              </div>
+              <Countdown date={Date.now() + 1000000} />
+            </div>
+            <div className={classes.cost}>
+              <div className={classes["cost-item"]}>cs</div>
+              <div className={classes["cost-item"]}>0</div>
+              <div className={classes["cost-icon"]}>
+                <TbHeartRateMonitor />
+              </div>
+            </div>
+            <Button
+              sx={{
+                pointerEvents: "auto",
+              }}
+            >
+              <AuctionDialog />
+            </Button>
           </div>
         </AccordionSummary>
         <Divider />

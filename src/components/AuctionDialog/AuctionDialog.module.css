@@ -1,0 +1,16 @@
+.open-modal {
+  margin: 0 5px 0 5px;
+  padding: 8px;
+  border-radius: 100%;
+  background: rgb(95, 178, 136);
+  color: rgb(255, 255, 255);
+  box-shadow: rgb(145 142 142) 0px 1px 3px 0px;
+  font-size: 21px;
+}
+.open-modal:hover {
+  cursor: pointer;
+}
+.modal-container {
+  width: 90vw;
+  max-width: 500px;
+}
