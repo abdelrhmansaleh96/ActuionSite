@@ -8,6 +8,7 @@ import CardImg from "../../assets/card.jpg";
 import CardImg2 from "../../assets/image.jfif";
 import PhotoLibraryOutlinedIcon from "@mui/icons-material/PhotoLibraryOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
+import Map from "../Map/Map";
 
 const CardDetailed = () => {
   const [active, setActive] = useState({
@@ -67,13 +68,22 @@ const CardDetailed = () => {
             </div>
           </div>
         </div>
-        <Card sx={{ maxWidth: 700, borderRadius: "20px" }}>
-          <CardMedia
-            component="img"
-            height="300"
-            image={active.one ? CardImg : CardImg2}
-            alt="auction"
-          />
+        <Card
+          sx={{
+            maxWidth: 700,
+            borderRadius: "20px",
+          }}
+        >
+          {active.one ? (
+            <CardMedia
+              component="img"
+              height="300"
+              image={active.one ? CardImg : CardImg2}
+              alt="auction"
+            />
+          ) : (
+            <Map />
+          )}
           <CardContent>
             <Typography
               sx={{

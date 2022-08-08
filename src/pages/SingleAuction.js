@@ -1,7 +1,8 @@
 import React from "react";
+import ProductDetailed from "../components/ProductDetailed.js/ProductDetailed";
 
 const SingleAuction = () => {
-  return <h2>Single Auction</h2>;
+  return <ProductDetailed />;
 };
 
 export default SingleAuction;

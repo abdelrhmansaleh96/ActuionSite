@@ -32,12 +32,8 @@
   color: rgb(9, 169, 62);
 }
 
-.main.one {
-  padding: 10px;
-  margin: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.one {
+  margin-bottom: 37px;
 }
 .main.one::after {
   content: "";

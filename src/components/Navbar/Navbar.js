@@ -3,6 +3,7 @@ import classes from "./Navbar.module.css";
 import logo from "../../assets/logo.png";
 import { CgProfile } from "react-icons/cg";
 import Sidebar from "../Sidebar/Sidebar";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -16,11 +17,21 @@ const Navbar = () => {
         </div>
         <div className={classes["nav-container"]}>
           <div className={`${classes.main} ${classes.one}`}>
-            <CgProfile className={classes.icon} />
-            Login
+            <Link to="/login">
+              <CgProfile className={classes.icon} />
+              Login
+            </Link>
           </div>
-          <div className={classes.main}>Home</div>
-          <div className={classes.main}>Auctions</div>
+
+          <div className={classes.main}>
+            <Link to="/home">Home </Link>
+          </div>
+
+          <div className={classes.main}>
+            {" "}
+            <Link to="/">Auctions</Link>
+          </div>
+
           <div className={classes.main}>Contact US</div>
         </div>
       </div>

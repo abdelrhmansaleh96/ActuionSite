@@ -5,6 +5,7 @@ import Button from "@mui/material/Button";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
+import { Link } from "react-router-dom";
 
 import { FaBars } from "react-icons/fa";
 
@@ -28,19 +29,24 @@ export default function Sidebar() {
   const list = () => (
     <Box sx={{ width: "150px" }}>
       <List>
-        {["Home", "Auctions", "Contact Us", "Sign in"].map((text) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton
-              sx={{
-                fontSize: "24px",
-                "&:hover": {
-                  color: "green",
-                },
-              }}
-            >
-              <h5>{text}</h5>
-            </ListItemButton>
-          </ListItem>
+        {["Home", "Auctions", "Contact Us", "Log in"].map((text) => (
+          <Link to={text.replace(/\s/g, "").toLowerCase()}>
+            <ListItem key={text} disablePadding>
+              <ListItemButton
+                onClick={() => {
+                  setState({ ...state, left: false });
+                }}
+                sx={{
+                  fontSize: "24px",
+                  "&:hover": {
+                    color: "green",
+                  },
+                }}
+              >
+                <h5>{text}</h5>
+              </ListItemButton>
+            </ListItem>
+          </Link>
         ))}
       </List>
     </Box>

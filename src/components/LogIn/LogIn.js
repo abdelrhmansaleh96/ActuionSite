@@ -10,8 +10,10 @@ import { BsFillPersonFill } from "react-icons/bs";
 import { IconButton } from "@mui/material";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import Button from "@mui/material/Button";
+import { useNavigate } from "react-router-dom";
 
 const LogIn = () => {
+  const navigate = useNavigate();
   const [values, setValues] = useState({
     password: "",
 
@@ -121,6 +123,9 @@ const LogIn = () => {
               marginTop: "56px",
               border: "1px solid rgb(95, 178, 136)",
               borderRadius: "33px",
+            }}
+            onClick={() => {
+              navigate("/home");
             }}
           >
             Log In
