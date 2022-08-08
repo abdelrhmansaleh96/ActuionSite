@@ -10,10 +10,7 @@ import { useMainContext } from "./context/main_context";
 // import SignUp from "./pages/SignUp";
 // import SingleAuction from "./pages/SingleAuction";
 import Navbar from "./components/Navbar/Navbar";
-import Footer from "./components/Footer/Footer";
-import ProductDetailed from "./components/ProductDetailed.js/ProductDetailed";
-import AuctionDetailed from "./components/AuctionDetailed/AuctionDetailed";
-import AuctionDialog from "./components/AuctionDialog/AuctionDialog";
+
 import Dashboard from "./components/Dashboard/Dashboard";
 
 function App() {
