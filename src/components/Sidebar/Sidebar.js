@@ -30,7 +30,7 @@ export default function Sidebar() {
     <Box sx={{ width: "150px" }}>
       <List>
         {["Home", "Auctions", "Contact Us", "Log in"].map((text) => (
-          <Link to={text.replace(/\s/g, "").toLowerCase()}>
+          <Link key={text} to={text.replace(/\s/g, "").toLowerCase()}>
             <ListItem key={text} disablePadding>
               <ListItemButton
                 onClick={() => {

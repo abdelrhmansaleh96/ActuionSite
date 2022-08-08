@@ -18,7 +18,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <Navbar />
 
-        <Routes>
+        {/* <Routes>
           <Route path="/home" element={<HomePage />} />
           <Route path="/singleauction" element={<SingleAuction />} />
           <Route path="/login" element={<Login />} />
@@ -26,7 +26,9 @@ function App() {
           <Route path="/contactus" element={<ContactUs />} />
           <Route path="/forgetpassword" element={<ForgetPassword />} />
           <Route path="/dashboard" element={<Dashboard />} />
-        </Routes>
+        </Routes> */}
+
+        <Dashboard />
       </ThemeProvider>
     </>
   );
