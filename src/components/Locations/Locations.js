@@ -18,7 +18,7 @@ const Locations = () => {
     setLocation(
       event.target.value.split("-").map((item) => parseInt(item, 10))
     );
-    setCenter(location);
+    // setCenter(location);
   };
   // const [selectValue, setSelectValue] = useState("23.8859-45.0792");
   // const [location, setLocation] = useState([23.8859, 45.0792]);
