@@ -9,9 +9,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Divider from "@mui/material/Divider";
-import { Link } from "react-router-dom";
-import { useFormik } from "formik";
-import { Formik, Form, Field, FieldArray } from "formik";
+import { Formik, Form, FieldArray } from "formik";
 
 const Dashboard = () => {
   // //   const [value, setValue] = React.useState(
@@ -29,13 +27,13 @@ const Dashboard = () => {
   //     console.log("my values", values);
   //   },
   // });
-  const [value, setValue] = React.useState({
-    describe: " ",
-    north: " ",
-    east: " ",
-    west: " ",
-    south: " ",
-  });
+  // const [value, setValue] = React.useState({
+  //   describe: " ",
+  //   north: " ",
+  //   east: " ",
+  //   west: " ",
+  //   south: " ",
+  // });
 
   // const handleChange = (event) => {
   //   setValue(event.target.value);
@@ -79,8 +77,8 @@ const Dashboard = () => {
           console.log("onSubmit", JSON.stringify(values, null, 2));
         }}
       >
-        {({ values, touched, errors, handleChange, handleBlur, isValid }) => (
-          <Form >
+        {({ values, errors, handleChange }) => (
+          <Form>
             <Grid
               container
               spacing={4}
@@ -142,7 +140,7 @@ const Dashboard = () => {
                     {values.details.map((detail, index) => {
                       const describe = `details[${index}].description`;
                       const area = `details[${index}].area`;
-                      const image = `details[${index}].lastName`;
+                      const image = `details[${index}].image`;
                       const east = `details[${index}].east`;
                       const west = `details[${index}].west`;
                       const north = `details[${index}].north`;
@@ -167,16 +165,6 @@ const Dashboard = () => {
                             >
                               Bid Details
                             </h1>
-                            <Button
-                              className={classes.button}
-                              margin="normal"
-                              type="button"
-                              color="secondary"
-                              variant="outlined"
-                              onClick={() => remove(index)}
-                            >
-                              x
-                            </Button>
                           </AccordionSummary>
                           <Divider />
                           <AccordionDetails>
@@ -208,7 +196,9 @@ const Dashboard = () => {
                                 <TextField
                                   id="outlined-basic"
                                   label="Image URL"
-                                  name="imageURL"
+                                  name={image}
+                                  onChange={handleChange}
+                                  value={detail.image}
                                   variant="outlined"
                                 />
                               </Grid>
@@ -279,30 +269,47 @@ const Dashboard = () => {
                                   sx={{ margin: "0 5px" }}
                                 />
                               </Grid>
+                              <Grid item xs={12}>
+                                <Button
+                                  type="button"
+                                  color="error"
+                                  variant="outlined"
+                                  onClick={(event) => {
+                                    remove(index);
+                                    event.stopPropagation();
+                                  }}
+                                >
+                                  x
+                                </Button>
+                              </Grid>
                             </Grid>
                           </AccordionDetails>
                         </Accordion>
                       );
                     })}
-                    <Button
-                      className={classes.button}
-                      type="button"
-                      variant="outlined"
-                      onClick={() =>
-                        push({
-                          id: Math.random(),
-                          description: " ",
-                          image: " ",
-                          area: " ",
-                          north: " ",
-                          east: " ",
-                          west: " ",
-                          south: " ",
-                        })
-                      }
-                    >
-                      Add
-                    </Button>
+                    <div className={classes.btn}>
+                      <Button
+                        sx={{
+                          fontSize: "16px",
+                        }}
+                        type="button"
+                        variant="outlined"
+                        onClick={() =>
+                          push({
+                            id: Math.random(),
+                            description: " ",
+                            image: " ",
+                            area: " ",
+                            north: " ",
+                            east: " ",
+                            west: " ",
+                            south: " ",
+                          })
+                        }
+                      >
+                        Add Bit Details
+                      </Button>
+                    </div>
                   </div>
                 )}
               </FieldArray>
