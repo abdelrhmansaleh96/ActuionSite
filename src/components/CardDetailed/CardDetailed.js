@@ -8,7 +8,7 @@ import CardImg from "../../assets/card.jpg";
 import CardImg2 from "../../assets/image.jfif";
 import PhotoLibraryOutlinedIcon from "@mui/icons-material/PhotoLibraryOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
-import Map from "../Map/Map";
+import Locations from "../Locations/Locations";
 
 const CardDetailed = () => {
   const [active, setActive] = useState({
@@ -82,7 +82,7 @@ const CardDetailed = () => {
               alt="auction"
             />
           ) : (
-            <Map />
+            <Locations />
           )}
           <CardContent>
             <Typography

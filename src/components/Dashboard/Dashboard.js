@@ -35,10 +35,6 @@ const Dashboard = () => {
   //   south: " ",
   // });
 
-  // const handleChange = (event) => {
-  //   setValue(event.target.value);
-  // };
-
   const centeringItems = {
     display: "flex",
     justifyContent: "center",
@@ -63,6 +59,7 @@ const Dashboard = () => {
           imageUrl: "",
           details: [
             {
+              id: "1",
               description: " ",
               image: " ",
               area: " ",
@@ -147,12 +144,12 @@ const Dashboard = () => {
                       const south = `details[${index}].south`;
                       return (
                         <Accordion
-                          key={index * Math.random()}
                           sx={{
                             maxWidth: "650px",
                             margin: "15px 0",
                             borderRadius: "15px",
                           }}
+                          key={index}
                         >
                           <AccordionSummary
                             expandIcon={<ExpandMoreIcon />}
@@ -274,9 +271,8 @@ const Dashboard = () => {
                                   type="button"
                                   color="error"
                                   variant="outlined"
-                                  onClick={(event) => {
+                                  onClick={() => {
                                     remove(index);
-                                    event.stopPropagation();
                                   }}
                                 >
                                   x

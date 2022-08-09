@@ -3,14 +3,18 @@ import classes from "./Navbar.module.css";
 import logo from "../../assets/logo.png";
 import { CgProfile } from "react-icons/cg";
 import Sidebar from "../Sidebar/Sidebar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const logoHandler = () => {
+    navigate("/dashboard");
+  };
   return (
     <>
       <div className={classes.container}>
         <div className={classes.logo}>
-          <img src={logo} alt="logo" />
+          <img onClick={logoHandler} src={logo} alt="logo" />
         </div>
         <div className={classes["toggle-btn"]}>
           <Sidebar />
