@@ -9,7 +9,8 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Divider from "@mui/material/Divider";
-import { Formik, Form, FieldArray } from "formik";
+import { Formik, Form, FieldArray, getIn } from "formik";
+import * as Yup from "yup";
 
 const Dashboard = () => {
   // //   const [value, setValue] = React.useState(
@@ -60,18 +61,45 @@ const Dashboard = () => {
           details: [
             {
               id: "1",
-              description: " ",
-              image: " ",
-              area: " ",
-              north: " ",
-              east: " ",
-              west: " ",
-              south: " ",
+              describe: "",
+              image: "",
+              area: "",
+              north: "",
+              east: "",
+              west: "",
+              south: "",
             },
           ],
         }}
+        validationSchema={Yup.object().shape({
+          bidName: Yup.string()
+            .min(3, "please enter a valid name")
+            .max(70, "you enter a big name")
+            .required("Name is required"),
+          location: Yup.number()
+            .required("Age is required")
+            .typeError("only numbers"),
+          imageUrl: Yup.string()
+            .url("Please enter a valid URL")
+            .required("URL is required"),
+          details: Yup.array().of(
+            Yup.object().shape({
+              describe: Yup.string().required(
+                "please enter a description for the bit"
+              ),
+              image: Yup.string().url("please enter a valid url"),
+              area: Yup.string().required("please enter a valid area in km"),
+              north: Yup.string().required(
+                "please enter what is beside the land from north"
+              ),
+              east: Yup.string().required(),
+              west: Yup.string().required(),
+              south: Yup.string().required(),
+            })
+          ),
+        })}
         onSubmit={(values) => {
-          console.log("onSubmit", JSON.stringify(values, null, 2));
+          console.log("onSubmit", JSON.stringify({ values }, null, 2));
         }}
       >
         {({ values, errors, handleChange }) => (
@@ -98,6 +126,8 @@ const Dashboard = () => {
                   name="bidName"
                   value={values.bidName}
                   onChange={handleChange}
+                  error={Boolean(errors.bidName)}
+                  helperText={errors.bidName}
                 />
               </Grid>
               <Grid item xs={12} sm={4}>
@@ -112,6 +142,8 @@ const Dashboard = () => {
                   name="location"
                   value={values.location}
                   onChange={handleChange}
+                  error={Boolean(errors.location)}
+                  helperText={errors.location}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -126,6 +158,8 @@ const Dashboard = () => {
                   name="imageUrl"
                   value={values.imageUrl}
                   onChange={handleChange}
+                  error={Boolean(errors.imageUrl)}
+                  helperText={errors.imageUrl}
                 />
               </Grid>
               <Grid item xs={12} sm={6} sx={centeringItems}>
@@ -135,15 +169,26 @@ const Dashboard = () => {
                 {({ push, remove }) => (
                   <div>
                     {values.details.map((detail, index) => {
-                      const describe = `details[${index}].description`;
+                      const describe = `details[${index}].describe`;
+                      const errorDescribe = getIn(errors, describe);
                       const area = `details[${index}].area`;
+                      const errorArea = getIn(errors, area);
                       const image = `details[${index}].image`;
+                      const errorImage = getIn(errors, image);
                       const east = `details[${index}].east`;
+                      const errorEast = getIn(errors, east);
                       const west = `details[${index}].west`;
+                      const errorWest = getIn(errors, west);
+
                       const north = `details[${index}].north`;
+                      const errorNorth = getIn(errors, north);
+
                       const south = `details[${index}].south`;
+                      const errorSouth = getIn(errors, south);
+
                       return (
                         <Accordion
+                          className={classes.myAcc}
                           sx={{
                             maxWidth: "650px",
                             margin: "15px 0",
@@ -182,6 +227,8 @@ const Dashboard = () => {
                                   maxRows={4}
                                   value={detail.describe}
                                   onChange={handleChange}
+                                  error={Boolean(errorDescribe)}
+                                  helperText={errorDescribe}
                                 />
                               </Grid>
                               <Grid item xs={12}>
@@ -197,6 +244,8 @@ const Dashboard = () => {
                                   onChange={handleChange}
                                   value={detail.image}
                                   variant="outlined"
+                                  error={Boolean(errorImage)}
+                                  helperText={errorImage}
                                 />
                               </Grid>
                               <Grid item xs={12} sm={6} sx={centeringItems}>
@@ -216,6 +265,8 @@ const Dashboard = () => {
                                   variant="outlined"
                                   onChange={handleChange}
                                   value={detail.area}
+                                  error={Boolean(errorArea)}
+                                  helperText={errorArea}
                                 />
                               </Grid>
                               <Grid item xs={12} sm={4}>
@@ -234,6 +285,8 @@ const Dashboard = () => {
                                   value={detail.north}
                                   onChange={handleChange}
                                   sx={{ margin: "0 5px" }}
+                                  error={Boolean(errorNorth)}
+                                  helperText={errorNorth}
                                 />
                                 <TextField
                                   id="outlined-multiline-flexible"
@@ -244,6 +297,7 @@ const Dashboard = () => {
                                   value={detail.south}
                                   onChange={handleChange}
                                   sx={{ margin: "0 5px" }}
+                                  error={Boolean(errorSouth)}
                                 />
                                 <TextField
                                   id="outlined-multiline-flexible"
@@ -254,6 +308,7 @@ const Dashboard = () => {
                                   value={detail.east}
                                   onChange={handleChange}
                                   sx={{ margin: "0 5px" }}
+                                  error={Boolean(errorEast)}
                                 />
                                 <TextField
                                   id="outlined-multiline-flexible"
@@ -264,6 +319,7 @@ const Dashboard = () => {
                                   value={detail.west}
                                   onChange={handleChange}
                                   sx={{ margin: "0 5px" }}
+                                  error={Boolean(errorWest)}
                                 />
                               </Grid>
                               <Grid item xs={12}>
@@ -330,6 +386,7 @@ const Dashboard = () => {
                   Submit
                 </Button>
               </Grid>
+              <div>{JSON.stringify({ values, errors }, null, 4)}</div>
             </Grid>
           </Form>
         )}
