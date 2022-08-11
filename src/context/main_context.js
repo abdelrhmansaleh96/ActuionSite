@@ -17,12 +17,18 @@ const theme = createTheme({
 const initialState = {
   theme: theme,
   data: data,
+  filteredData: data.auctions,
 };
 
 export const MainProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const handleFilter = (input) => {
+    dispatch({ type: "FILTER_AUCTIONS", payload: input });
+  };
   return (
-    <MainContext.Provider value={{ ...state }}>{children}</MainContext.Provider>
+    <MainContext.Provider value={{ ...state, handleFilter }}>
+      {children}
+    </MainContext.Provider>
   );
 };
 // make sure use

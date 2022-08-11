@@ -13,14 +13,16 @@ import CardLogo from "../../assets/card-logo.jpg";
 import { Link } from "react-router-dom";
 import { useMainContext } from "../../context/main_context";
 import { Container } from "@mui/material";
+import FilterCards from "../FilterCards/FilterCards";
 
 export default function MultiActionAreaCard() {
-  const { data } = useMainContext();
+  const {  filteredData } = useMainContext();
 
   return (
     <Container>
+      <FilterCards />
       <div className={classes.center}>
-        {data.auctions.map((auction, index) => {
+        {filteredData.map((auction, index) => {
           return (
             <Link to="/singleauction" key={index}>
               <div className={classes.wrapper}>
