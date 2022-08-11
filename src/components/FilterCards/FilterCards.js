@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./FilterCards.module.css";
 import { useMainContext } from "../../context/main_context";
 
 const FilterCards = () => {
   const [active, setActive] = useState(1);
   const { handleFilter } = useMainContext();
+
+  useEffect(() => {
+    handleFilter("all");
+  }, []);
 
   return (
     <div className={classes["menu-wrapper"]}>

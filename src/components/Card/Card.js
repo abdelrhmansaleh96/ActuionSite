@@ -15,6 +15,7 @@ import { useMainContext } from "../../context/main_context";
 import { Container } from "@mui/material";
 import FilterCards from "../FilterCards/FilterCards";
 import { motion, AnimatePresence } from "framer-motion";
+import Countdown from "react-countdown";
 
 export default function MultiActionAreaCard() {
   const { filteredData } = useMainContext();
@@ -86,8 +87,22 @@ export default function MultiActionAreaCard() {
                       >
                         <div className={classes.grid}>
                           <div className={classes.item1}>
-                            <header className={classes.time}>
-                              Time Remaining
+                            <header
+                              className={
+                                auction.status === "coming"
+                                  ? classes.time
+                                  : auction.status === "on Going"
+                                  ? `${classes.greenTxt} ${classes.time}`
+                                  : `${classes.grayTxt} ${classes.time}`
+                              }
+                            >
+                              {auction.status === "coming" ? (
+                                <Countdown date={Date.now() + 10000000} />
+                              ) : auction.status === "on Going" ? (
+                                "on Going"
+                              ) : (
+                                "Finished"
+                              )}
                             </header>
                             <div className={classes["time-info"]}>
                               <section>Details inside</section>
