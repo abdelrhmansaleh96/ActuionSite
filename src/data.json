@@ -77,7 +77,7 @@
     },
     {
       "Title": "string",
-      "status": "on Going",
+      "status": "finished",
       "location": "Location Name",
       "date": "Date",
       "details": "Details inside first payment",
@@ -107,7 +107,7 @@
     },
     {
       "Title": "string",
-      "status": "on Going",
+      "status": "coming",
       "location": "Location Name",
       "date": "Date",
       "details": "Details inside first payment",
@@ -122,7 +122,7 @@
     },
     {
       "Title": "string",
-      "status": "on Going",
+      "status": "finished",
       "location": "Location Name",
       "date": "Date",
       "details": "Details inside first payment",

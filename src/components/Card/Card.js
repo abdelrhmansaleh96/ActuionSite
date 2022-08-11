@@ -14,125 +14,134 @@ import { Link } from "react-router-dom";
 import { useMainContext } from "../../context/main_context";
 import { Container } from "@mui/material";
 import FilterCards from "../FilterCards/FilterCards";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function MultiActionAreaCard() {
-  const {  filteredData } = useMainContext();
+  const { filteredData } = useMainContext();
 
   return (
     <Container>
       <FilterCards />
       <div className={classes.center}>
-        {filteredData.map((auction, index) => {
-          return (
-            <Link to="/singleauction" key={index}>
-              <div className={classes.wrapper}>
-                <div className={classes.money}>Details here</div>
-                <div
-                  className={
-                    auction.status === "on Going"
-                      ? `${classes.type} ${classes.green}`
-                      : auction.status === "coming"
-                      ? `${classes.type} ${classes.blue}`
-                      : classes.type
-                  }
+        <AnimatePresence>
+          {filteredData.map((auction, index) => {
+            return (
+              <Link to="/singleauction" key={index}>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className={classes.wrapper}
                 >
-                  {auction.status}
-                </div>
-                <div className={classes["badges-container"]}>
-                  <StarBorderOutlinedIcon />
-                  <ShareOutlinedIcon />
-                </div>
-                <div className={classes["card-logo-container"]}>
-                  <img
-                    className={classes.image}
-                    src={CardLogo}
-                    alt="container-logo"
-                  />
-                </div>
-                <div className={classes["location-container"]}>
-                  <div className={classes["location-name"]}>
-                    {auction.location}
+                  <div className={classes.money}>Details here</div>
+                  <div
+                    className={
+                      auction.status === "on Going"
+                        ? `${classes.type} ${classes.green}`
+                        : auction.status === "coming"
+                        ? `${classes.type} ${classes.blue}`
+                        : classes.type
+                    }
+                  >
+                    {auction.status}
                   </div>
-                  <div className={classes["location"]}>
-                    <LocationOnIcon />
+                  <div className={classes["badges-container"]}>
+                    <StarBorderOutlinedIcon />
+                    <ShareOutlinedIcon />
                   </div>
-                </div>
-                <Card
-                  sx={{ maxWidth: 500, borderRadius: "22px" }}
-                  style={{
-                    padding: 0,
-                  }}
-                >
-                  <CardActionArea>
-                    <CardMedia
-                      component="img"
-                      height="300"
-                      image={CardImg}
-                      alt="auction 1"
+                  <div className={classes["card-logo-container"]}>
+                    <img
+                      className={classes.image}
+                      src={CardLogo}
+                      alt="container-logo"
                     />
-                    <CardContent
-                      sx={{
-                        margin: "0px",
-                        padding: "0px",
-                      }}
-                    >
-                      <div className={classes.grid}>
-                        <div className={classes.item1}>
-                          <header className={classes.time}>
-                            Time Remaining
-                          </header>
-                          <div className={classes["time-info"]}>
-                            <section>Details inside</section>
-                            <div>{auction.details}</div>
+                  </div>
+                  <div className={classes["location-container"]}>
+                    <div className={classes["location-name"]}>
+                      {auction.location}
+                    </div>
+                    <div className={classes["location"]}>
+                      <LocationOnIcon />
+                    </div>
+                  </div>
+                  <Card
+                    sx={{ maxWidth: 500, borderRadius: "22px" }}
+                    style={{
+                      padding: 0,
+                    }}
+                  >
+                    <CardActionArea>
+                      <CardMedia
+                        component="img"
+                        height="300"
+                        image={CardImg}
+                        alt="auction 1"
+                      />
+                      <CardContent
+                        sx={{
+                          margin: "0px",
+                          padding: "0px",
+                        }}
+                      >
+                        <div className={classes.grid}>
+                          <div className={classes.item1}>
+                            <header className={classes.time}>
+                              Time Remaining
+                            </header>
+                            <div className={classes["time-info"]}>
+                              <section>Details inside</section>
+                              <div>{auction.details}</div>
+                            </div>
                           </div>
-                        </div>
-                        <div className={classes.item1}>
-                          <div className={classes.date}>Sunday</div>
-                          <div className={classes.date}>01/9/2020</div>
-                          <div className={classes.date}>02/8/2022</div>
-                          <div>07:00 pm</div>
-                        </div>
-                        <div className={classes.item2}>
-                          <div className={classes["icon-container"]}>
-                            <AppSettingsAltOutlinedIcon fontSize="small" />
+                          <div className={classes.item1}>
+                            <div className={classes.date}>Sunday</div>
+                            <div className={classes.date}>01/9/2020</div>
+                            <div className={classes.date}>02/8/2022</div>
+                            <div>07:00 pm</div>
                           </div>
-                          my time
-                        </div>
-                        <div className={classes["small-grid"]}>
-                          <div className={classes["small-grid-item"]}>
-                            <div className={classes.badge}>
+                          <div className={classes.item2}>
+                            <div className={classes["icon-container"]}>
                               <AppSettingsAltOutlinedIcon fontSize="small" />
                             </div>
-                            <section>{auction.productsNumber}</section>
-                            <div>Products</div>
+                            my time
                           </div>
-                          <div className={classes["small-grid-item"]}>
-                            <div className={classes.badge2}>
-                              <AppSettingsAltOutlinedIcon fontSize="small" />
+                          <div className={classes["small-grid"]}>
+                            <div className={classes["small-grid-item"]}>
+                              <div className={classes.badge}>
+                                <AppSettingsAltOutlinedIcon fontSize="small" />
+                              </div>
+                              <section>{auction.productsNumber}</section>
+                              <div>Products</div>
                             </div>
+                            <div className={classes["small-grid-item"]}>
+                              <div className={classes.badge2}>
+                                <AppSettingsAltOutlinedIcon fontSize="small" />
+                              </div>
 
-                            <section>4</section>
-                            <div>Days</div>
+                              <section>4</section>
+                              <div>Days</div>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </CardContent>
-                  </CardActionArea>
-                  <CardActions sx={{ justifyContent: "center" }}>
-                    <Button
-                      size="small"
-                      color="primary"
-                      variant="contained"
-                      sx={{ color: "white" }}
-                    >
-                      Details
-                    </Button>
-                  </CardActions>
-                </Card>
-              </div>
-            </Link>
-          );
-        })}
+                      </CardContent>
+                    </CardActionArea>
+                    <CardActions sx={{ justifyContent: "center" }}>
+                      <Button
+                        size="small"
+                        color="primary"
+                        variant="contained"
+                        sx={{ color: "white" }}
+                      >
+                        Details
+                      </Button>
+                    </CardActions>
+                  </Card>
+                </motion.div>
+              </Link>
+            );
+          })}
+        </AnimatePresence>
       </div>
     </Container>
   );

@@ -3,7 +3,7 @@ import classes from "./FilterCards.module.css";
 import { useMainContext } from "../../context/main_context";
 
 const FilterCards = () => {
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState(1);
   const { handleFilter } = useMainContext();
 
   return (
