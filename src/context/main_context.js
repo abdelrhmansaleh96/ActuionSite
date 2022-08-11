@@ -1,6 +1,7 @@
 import React, { useContext, useReducer } from "react";
 import reducer from "../reducers/main_reducer";
 import { createTheme } from "@mui/material/styles";
+import data from "../data.json";
 
 const MainContext = React.createContext();
 const theme = createTheme({
@@ -15,7 +16,9 @@ const theme = createTheme({
 });
 const initialState = {
   theme: theme,
+  data: data,
 };
+
 export const MainProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (

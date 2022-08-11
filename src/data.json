@@ -1,0 +1,139 @@
+{
+  "auctions": [
+    {
+      "Title": "string",
+      "status": "on Going",
+      "location": "Location Name",
+      "date": "Date",
+      "details": "Details inside first payment",
+      "productsNumber": "16",
+      "subDetails": [
+        {
+          "productDetailed": {
+            "areaDescription": "first land with 500 km"
+          }
+        }
+      ]
+    },
+    {
+      "Title": "string",
+      "status": "on Going",
+      "location": "Location Name",
+      "date": "Date",
+      "details": "Details inside first payment",
+      "productsNumber": "16",
+      "subDetails": [
+        {
+          "productDetailed": {
+            "areaDescription": "first land with 500 km"
+          }
+        }
+      ]
+    },
+    {
+      "Title": "string",
+      "status": "finished",
+      "location": "Location Name",
+      "date": "Date",
+      "details": "Details inside first payment",
+      "productsNumber": "16",
+      "subDetails": [
+        {
+          "productDetailed": {
+            "areaDescription": "first land with 500 km"
+          }
+        }
+      ]
+    },
+    {
+      "Title": "string",
+      "status": "coming",
+      "location": "Location Name",
+      "date": "Date",
+      "details": "Details inside first payment",
+      "productsNumber": "16",
+      "subDetails": [
+        {
+          "productDetailed": {
+            "areaDescription": "first land with 500 km"
+          }
+        }
+      ]
+    },
+    {
+      "Title": "string",
+      "status": "on Going",
+      "location": "Location Name",
+      "date": "Date",
+      "details": "Details inside first payment",
+      "productsNumber": "16",
+      "subDetails": [
+        {
+          "productDetailed": {
+            "areaDescription": "first land with 500 km"
+          }
+        }
+      ]
+    },
+    {
+      "Title": "string",
+      "status": "on Going",
+      "location": "Location Name",
+      "date": "Date",
+      "details": "Details inside first payment",
+      "productsNumber": "16",
+      "subDetails": [
+        {
+          "productDetailed": {
+            "areaDescription": "first land with 500 km"
+          }
+        }
+      ]
+    },
+    {
+      "Title": "string",
+      "status": "on Going",
+      "location": "Location Name",
+      "date": "Date",
+      "details": "Details inside first payment",
+      "productsNumber": "16",
+      "subDetails": [
+        {
+          "productDetailed": {
+            "areaDescription": "first land with 500 km"
+          }
+        }
+      ]
+    },
+    {
+      "Title": "string",
+      "status": "on Going",
+      "location": "Location Name",
+      "date": "Date",
+      "details": "Details inside first payment",
+      "productsNumber": "16",
+      "subDetails": [
+        {
+          "productDetailed": {
+            "areaDescription": "first land with 500 km"
+          }
+        }
+      ]
+    },
+    {
+      "Title": "string",
+      "status": "on Going",
+      "location": "Location Name",
+      "date": "Date",
+      "details": "Details inside first payment",
+      "productsNumber": "16",
+      "subDetails": [
+        {
+          "productDetailed": {
+            "areaDescription": "first land with 500 km"
+          }
+        }
+      ]
+    }
+  ]
+}
