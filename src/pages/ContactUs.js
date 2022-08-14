@@ -3,10 +3,39 @@ import Grid from "@mui/material/Grid";
 import classes from "./ContactUs.module.css";
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
+import { motion } from "framer-motion";
 
 const ContactUs = () => {
+  const containerVariants = {
+    hidden: {
+      opacity: 0,
+      x: "100vw",
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+      
+        duration: 0.5,
+      },
+    },
+    exit: {
+      opacity: 0,
+      x: "-100vw",
+      transition: {
+      
+        duration: 0.5,
+      },
+    },
+  };
   return (
-    <div className={classes.container}>
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      className={classes.container}
+    >
       <Grid
         container
         spacing={3}
@@ -138,7 +167,7 @@ const ContactUs = () => {
           </Button>
         </Grid>
       </Grid>
-    </div>
+    </motion.div>
   );
 };
 
