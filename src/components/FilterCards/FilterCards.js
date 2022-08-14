@@ -8,6 +8,7 @@ const FilterCards = () => {
 
   useEffect(() => {
     handleFilter("all");
+    // eslint-disable-next-line
   }, []);
 
   return (
