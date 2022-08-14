@@ -7,7 +7,20 @@ import { Button } from "@mui/material";
 const ContactUs = () => {
   return (
     <div className={classes.container}>
-      <Grid container spacing={3}>
+      <Grid
+        container
+        spacing={3}
+        sx={{
+          ".css-1eyvwuq-MuiInputBase-root-MuiFilledInput-root": {
+            borderTopLeftRadius: "14px",
+            borderTopRightRadius: "14px",
+          },
+          ".css-2ttwrs-MuiInputBase-root-MuiFilledInput-root": {
+            borderTopLeftRadius: "18px",
+            borderTopRightRadius: "18px",
+          },
+        }}
+      >
         <Grid
           display="flex"
           justifyContent="center"
@@ -113,7 +126,12 @@ const ContactUs = () => {
           {" "}
           <Button
             variant="contained"
-            sx={{ fontSize: "21px", color: "white" }}
+            sx={{
+              fontSize: "21px",
+              color: "white",
+              backgroundColor: "rgb(34 148 72)",
+              borderRadius: "15px",
+            }}
             fullWidth
           >
             Send

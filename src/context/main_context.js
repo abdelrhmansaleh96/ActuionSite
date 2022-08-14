@@ -15,6 +15,9 @@ const theme = createTheme({
       main: "#c1c1c1",
     },
   },
+  typography: {
+    fontFamily: ["Cairo", "sans-serif"].join(","),
+  },
 });
 const setLoading = (e) => {
   e = !e;
@@ -39,7 +42,6 @@ export const MainProvider = ({ children }) => {
       return onValue(query, (snapshot) => {
         const data = snapshot.val();
         if (snapshot.exists()) {
-          console.log(data);
           setTimeout(() => {
             dispatch({ type: "GET_AUCTIONS_SUCCESS", payload: data });
           }, 3500);
