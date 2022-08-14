@@ -16,7 +16,7 @@ import { Container } from "@mui/material";
 import FilterCards from "../FilterCards/FilterCards";
 import { motion, AnimatePresence } from "framer-motion";
 import Countdown from "react-countdown";
-import { PuffLoader } from "react-spinners";
+import { CircleLoader } from "react-spinners";
 
 export default function MultiActionAreaCard() {
   const { filteredData, loading } = useMainContext();
@@ -25,7 +25,7 @@ export default function MultiActionAreaCard() {
     <Container>
       <FilterCards />
       <div className={classes.loader}>
-        <PuffLoader loading={loading} size={400} color="#5FB288" />
+        <CircleLoader loading={loading} size={450} color="#5FB288" />
       </div>
       <div className={classes.center}>
         {!loading && (

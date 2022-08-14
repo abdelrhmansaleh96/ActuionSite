@@ -33,10 +33,12 @@ const Navbar = () => {
 
           <div className={classes.main}>
             {" "}
-            <Link to="/">Auctions</Link>
+            <Link to="/home">Auctions</Link>
           </div>
 
-          <div className={classes.main}>Contact US</div>
+          <div className={classes.main}>
+            <Link to="/contactus">Contact US</Link>
+          </div>
         </div>
       </div>
       {/* {toggleDropMenu ? (

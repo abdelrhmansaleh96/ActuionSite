@@ -16,10 +16,14 @@ const theme = createTheme({
     },
   },
 });
+const setLoading = (e) => {
+  e = !e;
+};
 const initialState = {
   theme: theme,
   data: [],
   loading: false,
+  setLoading: setLoading(),
   filteredData: [],
   error: false,
 };
@@ -27,15 +31,19 @@ const initialState = {
 export const MainProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const fetchAuctions = async () => {
+  const fetchAuctions = async (initialState) => {
     dispatch({ type: "GET_AUCTIONS_BEGIN" });
+    // setLoading(initialState.loading);
     try {
       const query = ref(db, "auctions");
       return onValue(query, (snapshot) => {
         const data = snapshot.val();
         if (snapshot.exists()) {
           console.log(data);
-          dispatch({ type: "GET_AUCTIONS_SUCCESS", payload: data });
+          setTimeout(() => {
+            dispatch({ type: "GET_AUCTIONS_SUCCESS", payload: data });
+          }, 3500);
+          // setLoading(initialState.loading);
         }
       });
     } catch (error) {
